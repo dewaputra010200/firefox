@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    var script = document.createElement("script");
+    script.src = "https://codesandbox.io/p/preview-protocol.js";
+    script.defer = true;
+    script.async = true;
+    (document.body || document.documentElement).appendChild(script);
+  })();
+
+  const isIFramePreview = window.top !== window.self;
+
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "https://codesandbox.io/p/chrome-devtool/protocol/index.js";
+
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+
+  document.currentScript.remove();
+</script>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    var script = document.createElement("script");
+    script.src = "https://codesandbox.io/p/preview-protocol.js";
+    script.defer = true;
+    script.async = true;
+    (document.body || document.documentElement).appendChild(script);
+  })();
+
+  const isIFramePreview = window.top !== window.self;
+
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "https://codesandbox.io/p/chrome-devtool/protocol/index.js";
+
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+
+  document.currentScript.remove();
+</script>
+    <title>CodeSandbox - 502 Bad Gateway</title>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --title: #000;
+        --body: #373737;
+        --bg: #fff;
+        --link: #653ffd;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --title: #e5e5e5;
+          --body: #808080;
+          --bg: #0f0e0e;
+          --link: #edffa5;
+        }
+      }
+
+      html {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg);
+        color: var(--body);
+        line-height: 1.25rem;
+      }
+
+      #app {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+      }
+
+      @keyframes enter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+
+      .container {
+        margin: 0 8.5rem;
+        max-width: 30rem;
+        line-height: 1.4;
+        position: relative;
+        animation: enter 0.8s ease-in-out forwards;
+      }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          margin: 0 2rem;
+        }
+      }
+
+      h1 {
+        color: var(--title);
+        font-size: 1.5rem;
+        line-height: 2.625rem;
+        margin: 0;
+      }
+
+      a {
+        position: relative;
+        color: var(--link);
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+      }
+
+      a:hover::before {
+        transform-origin: 0% 50%;
+        transform: scale3d(1, 1, 1);
+      }
+
+      a > span {
+        font-size: 0.75rem;
+      }
+
+      pre {
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+      }
+
+      details {
+        margin-top: 1.5rem;
+        color: var(--body);
+        position: absolute;
+        width: 100%;
+      }
+
+      /* Hide default arrow */
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      /* Add custom arrow */
+      summary {
+        cursor: pointer;
+        color: var(--title);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      summary:before {
+        content: "â€º";
+        font-size: 1.2rem;
+        line-height: 1;
+        transform: translateY(-1px);
+        transition: transform 0.2s;
+      }
+
+      details[open] summary:before {
+        transform: translateY(-1px) rotate(90deg);
+      }
+
+      summary:hover {
+        color: var(--link);
+      }
+
+      details pre {
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        overflow-x: auto;
+        font-family: monospace;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        details pre {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .container ul {
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      const branchIdPort = document.location.host.split(".")[0];
+      const [branchId, _] = branchIdPort.split("-");
+
+      // Check if page is in an iframe
+      const isInIframe = window.self !== window.top;
+
+      document.getElementById("app").innerHTML = `
+        <div class="container">
+          <h1>502 Bad Gateway</h1>
+          <p>
+            The VM is running, but we were not able to access the dev server behind this port. This could be because:
+          </p>
+
+          <ul>
+            <li>The VM is running low on memory. Try restarting the dev server.</li>
+            <li>The dev server is not running or has crashed.</li>
+            <li>The dev server is not ready yet or returned a 502 error.</li>
+          </ul>
+
+          ${
+            !isInIframe
+              ? `
+            <a href="https://codesandbox.io/p/redirect-to-project-editor/${branchId}">Start from the editor <span>â†—</span></a>
+          `
+              : ""
+          }
+
+          <details id="error-details">
+            <summary>Error Message</summary>
+            <pre id="error-message">failed to connect to server of VM</pre>
+
+            <p style="font-size: 0.875rem; margin-top: 2rem;">
+              <a href="https://codesandbox.io/docs/faq#im-getting-a-502-error-it-looks-like-the-dev-server-has-not-started-yet-why" style="opacity: 0.7;">Troubleshoot using our documentation <span>â†—</span></a>
+            </p>
+          </details>
+        </div>
+      `;
+
+      // After setting innerHTML, check if error is empty
+      const errorMessage = document.getElementById("error-message");
+      const errorDetails = document.getElementById("error-details");
+
+      if (!errorMessage.textContent.trim()) {
+        errorDetails.style.display = "none";
+      }
+    </script>
+  </body>
+</html>Å™y’1      g’|;g’|FGÊpÒ       ™    O^partitionKey=%28https%2Cvisionary-taiyaki-327f98.netlify.app%29,~FETCH,:https://cz6jfk-3000.csb.app/audio/socket.io/?EIO=4&transport=polling&t=lwwwedl5 necko:classified 1 strongly-framed 1 security-info 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 request-method GET request-Accept-Encoding gzip, deflate, br, zstd response-head HTTP/3 502 
+date: Thu, 23 Jan 2025 17:28:38 GMT
+content-type: text/html
+cf-ray: 90698012bd3b3ff0-SIN
+cf-cache-status: DYNAMIC
+strict-transport-security: max-age=31536000; includeSubDomains
+priority: u=3,i=?0
+vary: Accept-Encoding
+server: cloudflare
+alt-svc: h3=":443"; ma=86400
+server-timing: cfExtPri
+X-Firefox-Http3: h3
+ original-response-headers date: Thu, 23 Jan 2025 17:28:38 GMT
+content-type: text/html
+cf-ray: 90698012bd3b3ff0-SIN
+cf-cache-status: DYNAMIC
+strict-transport-security: max-age=31536000; includeSubDomains
+priority: u=3,i=?0
+vary: Accept-Encoding
+server: cloudflare
+alt-svc: h3=":443"; ma=86400
+server-timing: cfExtPri
+ ctid 1 uncompressed-len 0 net-response-time-onstart 10962 net-response-time-onstop 11139   % 

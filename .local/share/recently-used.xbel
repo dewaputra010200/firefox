@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///config/bookmarks-2025-01-15.json" added="2025-01-15T17:27:20.931663Z" modified="2025-01-21T13:26:38.952799Z" visited="2025-01-15T17:27:20.931664Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/json"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-21T13:26:38.952797Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/bookmarks.html" added="2025-01-15T17:28:50.617452Z" modified="2025-01-21T13:19:31.511808Z" visited="2025-01-15T17:28:50.617452Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/html"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-21T13:19:31.511806Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/Downloads/automa-10-01-2025.json" added="2025-01-15T17:34:49.334080Z" modified="2025-01-15T17:35:31.424944Z" visited="2025-01-15T17:34:49.334081Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/json"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-15T17:35:31.424941Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/Downloads/xos-babyblue.jpg" added="2025-01-15T17:54:13.396848Z" modified="2025-01-15T17:54:13.396854Z" visited="2025-01-15T17:54:13.396849Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-15T17:54:13.396851Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/Downloads/bookmarks_1_21_25.html" added="2025-01-21T13:18:34.670165Z" modified="2025-01-21T13:18:34.670170Z" visited="2025-01-21T13:18:34.670166Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/html"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-21T13:18:34.670168Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/Downloads/bookmarks_1_21_25(1).html" added="2025-01-21T13:26:12.417910Z" modified="2025-01-23T06:40:29.179655Z" visited="2025-01-21T13:26:12.417910Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/html"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-23T06:40:29.179652Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///config/Downloads/automa-21-01-2025.json" added="2025-01-21T14:12:23.340490Z" modified="2025-01-23T06:43:50.916894Z" visited="2025-01-21T14:12:23.340491Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/json"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2025-01-23T06:43:50.916891Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
